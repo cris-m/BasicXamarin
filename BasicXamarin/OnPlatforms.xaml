@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.OnPlatforms">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                FontSize="Large">
+                <Label.TextColor>
+                    <OnPlatform x:TypeArguments="Color" Android="Green" iOS="Black"/>
+                </Label.TextColor>
+                <Label.Text>
+                    <OnPlatform x:TypeArguments="x:String" Android="Android" iOS="iOS"/>
+                </Label.Text>
+                <Label.FontSize>
+                    <OnPlatform x:TypeArguments="x:Double"  Android="40" iOS="30"/>
+                </Label.FontSize>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

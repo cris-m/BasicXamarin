@@ -11,9 +11,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical">
-                                <Label Text="{Binding Name}"/>
-                                <Label Text="{Binding Age}"/>
+                            <StackLayout Orientation="Vertical" Padding="10" BackgroundColor="Gray">
+                                <Label Text="{Binding Name}" FontSize="Large"/>
+                                <Label Text="{Binding Age}" FontSize="Small" Opacity="0.6"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

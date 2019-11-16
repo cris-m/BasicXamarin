@@ -36,7 +36,12 @@ namespace BasicXamarin
             //    }
             //};
 
-            MainPage = new ListViews();
+            //MainPage = new ListViews();
+            //MainPage = new MasterDetailPages();
+            //MainPage = new Styles();
+            //MainPage = new DataBinding();
+            //MainPage = new Converters();
+            MainPage = new OnPlatforms();
         }
 
         protected override void OnStart()
