@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.ToolBars">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" 
+                     Text="Item 1" 
+                     Icon="ic_action_account_circle.png" 
+                     Priority="0" 
+                     Order="Primary"
+                     Clicked="MenuItem1_Clicked"/>
+        <ToolbarItem Name="MenuItem2" 
+                     Text="Item 2" 
+                     Icon="ic_action_accessibility_new.png" 
+                     Priority="0" 
+                     Order="Primary"/>
+        <ToolbarItem Name="MenuItem3" 
+                     Text="Item 3" 
+                     Icon="ic_action_error_outline.png" 
+                     Priority="0" 
+                     Order="Primary"/>
+        <ToolbarItem Name="MenuItem4" 
+                     Text="Item 4" 
+                     Icon="ic_action_error_outline.png" 
+                     Priority="1" 
+                     Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

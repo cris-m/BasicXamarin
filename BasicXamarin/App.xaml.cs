@@ -41,7 +41,17 @@ namespace BasicXamarin
             //MainPage = new Styles();
             //MainPage = new DataBinding();
             //MainPage = new Converters();
-            MainPage = new OnPlatforms();
+            //MainPage = new OnPlatforms();
+            //MainPage = new Alerts();
+            //MainPage = new ActionMenus();
+            //MainPage = new SliderControl();
+            //MainPage = new XReference();
+            //MainPage = new DatepickerControl();
+            //MainPage = new Switchs();
+            //MainPage = new Progressbars();
+            //MainPage = new NavigationPage(new ToolBars());
+            //MainPage = new SearchbarControl();
+            MainPage = new Pickers();
         }
 
         protected override void OnStart()

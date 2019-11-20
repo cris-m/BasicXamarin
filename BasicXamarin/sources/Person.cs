@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BasicXamarin.sources
+namespace BasicXamarin.Sources
 {
     public class Person
     {
