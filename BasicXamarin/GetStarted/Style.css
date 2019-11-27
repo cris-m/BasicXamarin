@@ -1,0 +1,12 @@
+﻿body {
+}
+.register_button {
+    background-color:cornflowerblue;
+    font-size:medium;
+    /*text-align:end;*/
+}
+boxview {
+   background-color: black;
+   height: 200;
+   margin: 5;
+}

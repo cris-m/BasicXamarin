@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.GetStarted.StylesPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <StyleSheet Source="/GetStarted/Style.css"/>
+            <StyleSheet>
+                <![CDATA[
+                    ^contentpage{
+                        background-color: green;
+                    }
+                ]]>
+            </StyleSheet>
+            <!---Implicite style-->
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="BackgroundColor" Value="#B0C4DE"/>
+                <Setter Property="TextColor"  Value="White"/>
+                <Setter Property="FontAttributes"  Value="Bold"/>
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Orientation"  Value="Vertical"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="UsernameEntryStyle" TargetType="Entry">
+                <!--<Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="Large"/>-->
+                <Setter Property="FontAttributes"  Value="Italic"/>
+                <Setter Property="BackgroundColor"  Value="White"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="BackgroundColor"  Value="GhostWhite"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource AppBackground}">
+            <BoxView/>
+            <Entry Style="{StaticResource UsernameEntryStyle}" Placeholder="Username"/>
+            <Entry IsPassword="True" Placeholder="Password"/>
+            <Button Text="Login"/>
+            <Label x:Name="MainLabel" Text="This text is style from css"/>
+            <Button StyleClass="register_button" Text="Register"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

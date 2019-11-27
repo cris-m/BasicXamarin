@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "BasicXamarin": {
+      "commandName": "Project",
+      "sqlDebugging": true,
+      "nativeDebugging": true
+    }
+  }
+}

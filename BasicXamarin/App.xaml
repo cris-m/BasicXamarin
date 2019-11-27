@@ -6,6 +6,20 @@
              mc:Ignorable="d"
              x:Class="BasicXamarin.App">
     <Application.Resources>
-
+        <!---Application Style-->
+        <!---Color-->
+        <Color x:Key="AppBackground">#C0C0C0</Color>
+        <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
+        <Color x:Key="AndroidNavigationBarColor">#87CEFA</Color>
+        
+        <!---Implicite style-->
+        <Style TargetType="NavigationPage">
+            <Setter Property="BackgroundColor" 
+                    Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor}, Android={StaticResource AndroidNavigationBarColor}}">
+            </Setter>
+        </Style>
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource AppBackground}"/>
+        </Style>
     </Application.Resources>
 </Application>

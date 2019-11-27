@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.XamlDataBinding"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Module">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="BoxSize" x:TypeArguments="x:Double">
+                <On Platform="Android, iOS" Value="50"/>
+            </OnPlatform>
+            <OnPlatform x:Key="RowHeight" x:TypeArguments="x:Int32">
+                <On Platform="Android, iOS" Value="60"/>
+            </OnPlatform>
+            <local:DoubleToIntConverter x:Key="IntConvertor"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <Label Text="Rotation"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center"
+                FontSize="Large"
+                BindingContext="{x:Reference MainSlider}"
+                Rotation="{Binding Path=Value}"/>
+            <Slider
+                x:Name="MainSlider"
+                Maximum="360"
+                VerticalOptions="CenterAndExpand"/>
+            <Label
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center"
+                FontSize="Large"
+                FontAttributes="Bold"
+                BindingContext="{x:Reference MainSlider}"
+                Text="{Binding Value, StringFormat='The angle is {0:F0} degrees'}"/>
+        </StackLayout>-->
+        <!---****When Multiple Element of the same type use the one BindingContentext of another element****-->
+        <!--<Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            -->
+        <!---Rotate Label-->
+        <!--
+            <Label x:Name="MainLabel"
+                   Text="Text"
+                   FontSize="100"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"/>
+            -->
+        <!---Slider idetifying the label for Rotation-->
+        <!--
+            <Slider x:Name="RotationSlider"
+                    BindingContext="{x:Reference MainLabel}"
+                    Grid.Row="2" Grid.Column="0"
+                    Maximum="360"
+                    Value="{Binding Rotation, Mode=OneWayToSource}"/>
+            <Label
+                VerticalOptions="Center" 
+                BindingContext="{x:Reference RotationSlider}"
+                Text="{Binding Value, StringFormat='Rotation = {0:F0}'}"
+                Grid.Row="2" Grid.Column="1"/>
+            -->
+        <!---Slider and identifying Label for RotationX-->
+        <!--
+            <Slider x:Name="RotationXSlider"
+                    BindingContext="{x:Reference MainLabel}"
+                    Grid.Row="3" Grid.Column="0"
+                    Maximum="360"
+                    Value="{Binding RotationX, Mode=OneWayToSource}"/>
+            <Label
+                VerticalOptions="Center" 
+                BindingContext="{x:Reference RotationXSlider}"
+                Text="{Binding Value, StringFormat='RotationX = {0:F0}'}"
+                Grid.Row="3" Grid.Column="1"/>
+            -->
+        <!---Slider and identifying Label for RotationY-->
+        <!--
+            <Slider x:Name="RotationYSlider"
+                    BindingContext="{x:Reference MainLabel}"
+                    Grid.Row="4" Grid.Column="0"
+                    Maximum="360"
+                    Value="{Binding RotationY, Mode=OneWayToSource}"/>
+            <Label
+                VerticalOptions="Center" 
+                BindingContext="{x:Reference RotationYSlider}"
+                Text="{Binding Value, StringFormat='RotationY = {0:F0}'}"
+                Grid.Row="4" Grid.Column="1"/>
+        </Grid>-->
+        <!---********Binding Collection********-->
+        <StackLayout Margin="10">
+            <ListView
+                ItemsSource="{x:Static local:NamedColor.All}"
+                RowHeight="{StaticResource RowHeight}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Padding="5, 5, 0, 5"
+                                             Orientation="Horizontal"
+                                             Spacing="15">
+                                    <BoxView WidthRequest="{StaticResource BoxSize}"
+                                             HeightRequest="{StaticResource BoxSize}"
+                                             Color="{Binding Color}"/>
+                                    <StackLayout Padding="5, 0, 0, 0"
+                                                 VerticalOptions="Center">
+                                        <Label Text="{Binding FriendlyName}"
+                                               FontAttributes="Bold"
+                                               FontSize="Medium"/>
+                                        <StackLayout Orientation="Horizontal"
+                                                 Spacing="0">
+                                            <Label Text="{Binding Color.R,
+                                            Converter={StaticResource IntConvertor},
+                                            ConverterParameter=255,
+                                            StringFormat='R={0:X2} '}"/>
+                                            <Label Text="{Binding Color.G,
+                                            Converter={StaticResource IntConvertor},
+                                            ConverterParameter=255,
+                                            StringFormat='R={0:X2} '}"/>
+                                            <Label Text="{Binding Color.B,
+                                            Converter={StaticResource IntConvertor},
+                                            ConverterParameter=255,
+                                            StringFormat='R={0:X2} '}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

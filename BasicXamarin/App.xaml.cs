@@ -1,4 +1,9 @@
-﻿using System;
+﻿using BasicXamarin.Essentials;
+using BasicXamarin.GetStarted;
+using BasicXamarin.GetStarted.Models;
+using BasicXamarin.XAML;
+using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,6 +11,19 @@ namespace BasicXamarin
 {
     public partial class App : Application
     {
+        public static string FolderPath { get; private set; }
+        static NoteDatabase db;
+        public static NoteDatabase DB
+        {
+            get
+            {
+                if (db == null)
+                {
+                    db = new NoteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
+                }
+                return db;
+            }
+        }
         public App()
         {
             InitializeComponent();
@@ -51,7 +69,27 @@ namespace BasicXamarin
             //MainPage = new Progressbars();
             //MainPage = new NavigationPage(new ToolBars());
             //MainPage = new SearchbarControl();
-            MainPage = new Pickers();
+            //MainPage = new Pickers();
+
+            //**** Get started**********
+            //MainPage = new SinglePage();
+            //FolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //MainPage = new NavigationPage(new MultiplePage());
+
+            //MainPage = new NavigationPage(new DatabasePage());
+            //MainPage = new StylesPage();
+
+            //**** XAML *******************
+            //MainPage = new XamlIntroduction();
+            //MainPage = new XamlMarkup();
+            MainPage = new XamlDataBinding();
+
+            //****** Xamarin Essentials****
+            //MainPage = new AccelerometerPage();
+            //MainPage = new AppInfoPage();
+            //MainPage = new BarometerPage();
+            //MainPage = new BatteryPage();
+            //MainPage = new NavigationPage(new LoginClipboard());
         }
 
         protected override void OnStart()

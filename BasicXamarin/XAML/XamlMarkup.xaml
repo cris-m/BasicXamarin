@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.XamlMarkup"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Module"
+             Padding="{x:Static local:AppConstants.PagePadding}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <LayoutOptions x:Key="horzOptions"
+                           Alignment="Center"/>
+            <LayoutOptions x:Key="vertOptions"
+                           Alignment="Center"
+                           Expands="True"/>
+            <x:Double x:Key="borderWidth">
+                4
+            </x:Double>
+            <x:Double x:Key="rotationAngle">-90</x:Double>
+            <!--<Color x:Key="textColor">Red</Color>-->
+            <OnPlatform x:Key="textColor" x:TypeArguments="Color">
+                <On Platform="iOS" Value="Red"/>
+                <On Platform="Android" Value="Aqua"/>
+            </OnPlatform>
+            <x:Double x:Key="fontSize">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <Button Text="Do it!"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    BorderWidth="3"
+                    Rotation="-90"
+                    TextColor="Red"
+                    FontSize="24"/>
+            <Button Text="Do it!"
+                    HorizontalOptions="{StaticResource horzOptions}"
+                    VerticalOptions="{StaticResource vertOptions}"
+                    BorderWidth="{StaticResource borderWidth}"
+                    Rotation="{StaticResource rotationAngle}"
+                    TextColor="{StaticResource textColor}"
+                    FontSize="{StaticResource fontSize}"/>
+            <Label Text="Hello, XAML!"
+                   VerticalOptions="{x:Static LayoutOptions.Start}"
+                   HorizontalTextAlignment="{x:Static TextAlignment.Center}"
+                   TextColor="{x:Static Color.Green}"
+                   Font="{x:Static local:AppConstants.TitleFont}"/>
+            <BoxView
+                WidthRequest="{x:Static sys:Math.PI}"
+                HeightRequest="{x:Static sys:Math.E}"
+                Color="{x:Static local:AppConstants.BackgroundColor}"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                Scale="100"/>
+        </StackLayout>-->
+        <!--- ConstraintExpression Markup Extension-->
+        <RelativeLayout>
+            <!-- Upper left -->
+            <BoxView
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                Color="Red"/>
+            <!-- Upper right -->
+            <BoxView
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-40}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                Color="Green"/>
+            <!-- Lower left -->
+            <BoxView
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-40}"
+                Color="Blue"/>
+            <!-- Lower right -->
+            <BoxView
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-40}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-40}"
+                Color="Yellow"/>
+
+            <!-- Centered and 1/3 width and height of parent -->
+            <BoxView
+                x:Name="oneThird"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.33}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0.33}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0.33}"
+                Color="Pink"/>
+            <!-- 1/3 width and height of previous -->
+            <BoxView
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, ElementName=oneThird}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, ElementName=oneThird}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView,Property=Width, ElementName=oneThird, Factor=0.33}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView,Property=Height, ElementName=oneThird, Factor=0.33}"
+                Color="Violet"/>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
