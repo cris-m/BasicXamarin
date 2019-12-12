@@ -2,6 +2,7 @@
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
 using BasicXamarin.XAML;
+using BasicXamarin.XAML.Controls;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -82,7 +83,15 @@ namespace BasicXamarin
             //**** XAML *******************
             //MainPage = new XamlIntroduction();
             //MainPage = new XamlMarkup();
-            MainPage = new XamlDataBinding();
+            //MainPage = new XamlDataBinding();
+            //MainPage = new FormDataBinding();
+            //MainPage = new XamlCommand();
+            //MainPage = new NavigationPage( new NavigationMenu());
+            //MainPage = new BoxViewControl();
+            //MainPage = new ImageControl();
+            //MainPage = new LabelControl();
+            //MainPage = new MapControl();
+            MainPage = new WebViewControl();
 
             //****** Xamarin Essentials****
             //MainPage = new AccelerometerPage();

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.MapControl"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:customer="clr-namespace:BasicXamarin.XAML.Controls.Module">
+    <ContentPage.Content>
+        <!--<maps:Map x:Name="map"/>-->
+        <Grid>
+            <!--<Label x:Name="pos"/>-->
+            <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
+        <!--<maps:Map Grid.Row="0" x:Name="map">
+            <x:Arguments>
+                <maps:MapSpan>
+                    <x:Arguments>
+                        <maps:Position>
+                            <x:Arguments>
+                                <x:Double>36.9628066</x:Double>
+                                <x:Double>-122.0194722</x:Double>
+                            </x:Arguments>
+                        </maps:Position>
+                        <x:Double>0.01</x:Double>
+                        <x:Double>0.01</x:Double>
+                    </x:Arguments>
+                </maps:MapSpan>
+            </x:Arguments>
+        </maps:Map>-->
+            <!--<maps:Map x:Name="map" Grid.Row="0" MapClicked="map_MapClicked"/>-->
+            <!--<customer:CustomerMap x:Name="MapCustom" MapType="Street"/>
+            <Grid Grid.Row="1" ColumnSpacing="5" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>-->
+                <!--<Button Grid.Column="0" Text="Street" Clicked="Button_Clicked"/>
+                <Button Grid.Column="1" Text="Satellite" Clicked="Button_Clicked_1"/>
+                <Button Grid.Column="2" Text="Hybride" Clicked="Button_Clicked_2"/>
+            </Grid>-->
+            
+            <!---Polygone-->
+            <!--<maps:Map>
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6368678</x:Double>
+                                    <x:Double>-122.137305</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.MapElements>
+                    <maps:Polygon StrokeWidth="8"
+                                  StrokeColor="Black"
+                                  FillColor="Red">
+                        <maps:Polygon.Geopath>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6368678</x:Double>
+                                    <x:Double>-122.137305</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6368894</x:Double>
+                                    <x:Double>-122.134655</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6359424</x:Double>
+                                    <x:Double>-122.134655</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6359496</x:Double>
+                                    <x:Double>-122.1325521</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6424124</x:Double>
+                                    <x:Double>-122.1325199</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.642463</x:Double>
+                                    <x:Double>-122.1338932</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6406414</x:Double>
+                                    <x:Double>-122.1344833</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6384943</x:Double>
+                                    <x:Double>-122.1361248</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6372943</x:Double>
+                                    <x:Double>-122.1376912</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                        </maps:Polygon.Geopath>
+                    </maps:Polygon>
+                </maps:Map.MapElements>
+            </maps:Map>-->
+            
+            <!---Polyline-->
+            <maps:Map>
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6406414</x:Double>
+                                    <x:Double>-122.1344833</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.MapElements>
+                    <maps:Polyline StrokeColor="Blue"
+                                   StrokeWidth="10">
+                        <maps:Polyline.Geopath>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6406414</x:Double>
+                                    <x:Double>-122.1344833</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6384943</x:Double>
+                                    <x:Double>-122.1361248</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6372943</x:Double>
+                                    <x:Double>-122.1376912</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>47.6372943</x:Double>
+                                    <x:Double>-122.1380912</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                        </maps:Polyline.Geopath>
+                    </maps:Polyline>
+                </maps:Map.MapElements>
+            </maps:Map>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

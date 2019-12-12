@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.FormDataBinding"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Module">
+    <ContentPage.BindingContext>
+        <local:HslViewModel Color="Aqua"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!---****Simple View Model-->
+        <!--<StackLayout BindingContext="{x:Static sys:DateTime.Now}"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+
+            <Label Text="{Binding Year, StringFormat='The year is {0}'}"/>
+            <Label Text="{Binding  StringFormat='The month is {0:MMMM}'}"/>
+            <Label Text="{Binding Day, StringFormat='The day is {0}'}"/>
+            <Label Text="{Binding StringFormat='The time is {0:T}'}"/>
+        </StackLayout>-->
+        <!---Model View-->
+        <!--<StackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Label Text="{Binding Datetime, StringFormat='{0:T}'}"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Label.BindingContext>
+                    <local:ClockViewMode/>
+                </Label.BindingContext>
+            </Label>
+        </StackLayout>-->
+        <!---*****Interactive MVVM*****-->
+        <StackLayout Padding="10">
+            <BoxView  VerticalOptions="FillAndExpand" Color="{Binding Color}"/>
+            <Label HorizontalOptions="Center" Text="{Binding Hue, StringFormat='Hue = {0:F2}'}"/>
+            <Slider Value="{Binding Hue, Mode=TwoWay}"/>
+            <Label HorizontalOptions="Center" Text="{Binding Saturation, StringFormat='Saturation = {0:F2}'}"/>
+            <Slider Value="{Binding Saturation, Mode=TwoWay}"/>
+            <Label HorizontalOptions="Center" Text="{Binding Luminosity, StringFormat='Luminosity = {0:F2}'}"/>
+            <Slider Value="{Binding Luminosity, Mode=TwoWay}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

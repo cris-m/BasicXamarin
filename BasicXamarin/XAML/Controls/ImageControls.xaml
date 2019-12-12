@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.ImageControl"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Module">
+    <!--<ContentPage.Content>
+        <Image Source="https://aka.ms/campus.jpg"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"/>
+    </ContentPage.Content>-->
+
+    <ContentPage.Content>
+        <!---Display embeddedimage in xaml-->
+        <Image Source="{local:ImageResource BasicXamarin.XAML.Controls.452292672.jpg}"/>
+    </ContentPage.Content>
+</ContentPage>
