@@ -91,7 +91,12 @@ namespace BasicXamarin
             //MainPage = new ImageControl();
             //MainPage = new LabelControl();
             //MainPage = new MapControl();
-            MainPage = new WebViewControl();
+            //MainPage = new WebViewControl(); //***** needto be checked
+            //MainPage = new ButtonControl();
+            //MainPage = new ImageButtonControl();
+            //MainPage = new RefreshViewControl();
+            //MainPage = new SearchBarControl();
+            MainPage = new SwipeViewControl();
 
             //****** Xamarin Essentials****
             //MainPage = new AccelerometerPage();

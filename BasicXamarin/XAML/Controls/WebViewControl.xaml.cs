@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BasicXamarin.XAML.Controls.Module;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,25 +34,22 @@ namespace BasicXamarin.XAML.Controls
             //       </body>
             //    </html>";
             //browser.Source = htmlSource;
+            //Content = browser;
 
+            // Local HTML file
+            var browser = new WebView();
+            var htmlSource = new HtmlWebViewSource();
+            htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+            browser.Source = htmlSource;
+            Content = browser;
 
-            //Html fromlocalfile
-            var cacheFile = Path.Combine(FileSystem.CacheDirectory, "index.html");
-            if (File.Exists(cacheFile))
-                File.Delete(cacheFile);
-            using (var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("index.html"))
-            using (var file = new FileStream(cacheFile, FileMode.Open, FileAccess.Read))
-            {
-                resource.CopyTo(file);
-                //StreamReader reader = new StreamReader(resource);
-                //xx.Text = reader.ReadToEnd();
-                //var browser = new WebView();
-                //var htmlSource = new HtmlWebViewSource();
-                //htmlSource.Html = reader.ReadToEnd();
-                //browser.Source = htmlSource;
-                //Content = browser;
-            }
-            string x =  File.ReadAllText("file://localhost/" + cacheFile);
+            //var browser = new WebView();
+            //var urlSource = new UrlWebViewSource();
+            //string baseUrl = DependencyService.Get<IBaseUrl>().Get();
+            //string filePathUrl = Path.Combine(baseUrl, "index.html");
+            //urlSource.Url = filePathUrl;
+            //browser.Source = urlSource;
+            //Content = browser;
         }
     }
 }

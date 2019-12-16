@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.SwipeViewControl">
+    <ContentPage.Content>
+        <StackLayout>
+            <SwipeView>
+                <SwipeView.LeftItems>
+                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto">
+                        <SwipeItem Text="Favorite"
+                                   IconImageSource="ic_action_error_outline.png"
+                                   BackgroundColor="LightPink"
+                                   Invoked="SwipeItem_Invoked"/>
+                        <SwipeItem Text="Delete"
+                                   IconImageSource="ic_action_account_circle.png"
+                                   BackgroundColor="LightBlue"
+                                   Invoked="SwipeItem_Invoked"/>
+                    </SwipeItems>
+                </SwipeView.LeftItems>
+                <SwipeView.RightItems>
+                    <SwipeItems>
+                        <SwipeItem Text="Community"
+                                   IconImageSource="ic_action_accessibility_new.png"
+                                   BackgroundColor="LightGreen"/>
+                    </SwipeItems>
+                </SwipeView.RightItems>
+                <!---Content-->
+                <Grid HeightRequest="60"
+                  WidthRequest="300"
+                  BackgroundColor="LightGray">
+                    <Label Text="Swipe right"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                </Grid>
+            </SwipeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -12,19 +12,17 @@
 
   <ItemGroup>
     <None Remove="XAML\Controls\452292672.jpg" />
-    <None Remove="XAML\Controls\Module\index.html" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="XAML\Controls\452292672.jpg" />
-    <EmbeddedResource Include="XAML\Controls\Module\index.html" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991221" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.3.0.991221" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991265" />
   </ItemGroup>
 
   <ItemGroup>
@@ -148,6 +146,12 @@
     <EmbeddedResource Update="XAML\Controls\BoxViewControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="XAML\Controls\ButtonControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="XAML\Controls\ImageButtonControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="XAML\Controls\ImageControls.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -155,6 +159,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="XAML\Controls\MapControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="XAML\Controls\RefreshViewControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="XAML\Controls\SearchBarControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="XAML\Controls\SwipeViewControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="XAML\Controls\WebViewControl.xaml">
