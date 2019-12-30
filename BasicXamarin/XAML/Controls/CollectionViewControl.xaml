@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.CollectionViewControl"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Controls.Module">
+    <!--<ContentPage.BindingContext>-->
+        <!--<local:MonkeyViewModel/>-->
+    <!--<local:AnimalsViewModel/>-->
+    <!--</ContentPage.BindingContext>-->
+    <ContentPage.Resources>
+        <!--<ContentView x:Key="BasicEmptyView">
+        <StackLayout>
+            <Label Text="No items to display."
+                   Margin="10,25,10,10"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   HorizontalOptions="Fill"
+                   HorizontalTextAlignment="Center" />
+        </StackLayout>
+        </ContentView>
+        <ContentView x:Key="AdvancedEmptyView">
+            <StackLayout>
+                <Label Text="No results matched your filter."
+                       Margin="10,25,10,10"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="Fill"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Try a broader filter?"
+                       FontAttributes="Italic"
+                       FontSize="12"
+                       HorizontalOptions="Fill"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </ContentView>-->
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal"/>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="LightSkyBlue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+        <ResourceDictionary>
+            <DataTemplate x:Key="BasicEmptyView">
+                <StackLayout>
+                    <Label Text="No items to display."
+                   Margin="10,25,10,10"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   HorizontalOptions="Fill"
+                   HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="AdvancedEmptyView">
+                <StackLayout>
+                    <Label Text="No results matched your filter."
+                       Margin="10,25,10,10"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="Fill"
+                       HorizontalTextAlignment="Center" />
+                    <Label Text="Try a broader filter?"
+                       FontAttributes="Italic"
+                       FontSize="12"
+                       HorizontalOptions="Fill"
+                       HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </DataTemplate>
+            <local:CollectionViewDataTemplateSelector x:Key="SearchSelector"
+                                                      OtherTemplate="{StaticResource BasicEmptyView}"
+                                                      DefaultTemplate="{StaticResource AdvancedEmptyView}"/>
+            <DataTemplate x:Key="AfricaMonkeyTemplate">
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                    <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                    <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="OtherMonkeyTemplate">
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding ImageUrl}"
+                           Grid.RowSpan="2"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Name}"
+                           FontAttributes="Bold"
+                           TextColor="Blue"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Location}"
+                           FontAttributes="Italic"
+                           VerticalOptions="End"
+                           TextColor="Gray"/>
+                </Grid>
+            </DataTemplate>
+            <local:MonkeyDataTemplateSelector x:Key="MonkeyTempSelector"
+                                              AfricaMonkey="{StaticResource AfricaMonkeyTemplate}"
+                                              OtherMonkey="{StaticResource OtherMonkeyTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <!--<CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Baboon</x:String>
+                        <x:String>Capuchin Monkey</x:String>
+                        <x:String>Blue Monkey</x:String>
+                        <x:String>Squirrel Monkey</x:String>
+                        <x:String>Golden Lion Tamarin</x:String>
+                        <x:String>Howler Monkey</x:String>
+                        <x:String>Japanese Macaque</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+            </CollectionView>-->
+            <!---Collection View -->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!--Choose item appearance at runtime-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            ItemTemplate="{StaticResource MonkeyTempSelector}"/>-->
+            <!---Context menus-->
+            <!--<CollectionView x:Name="MainCollectionView"
+                            ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto" >
+                                    <SwipeItem Text="Favorite"
+                                               IconImageSource="ic_action_error_outline.png"
+                                               BackgroundColor="LightPink"/>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="ic_action_account_circle.png"
+                                               BackgroundColor="LightBlue"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="10"
+                                  BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Refresh-->
+            <!--<RefreshView IsRefreshing="{Binding IsRefreshing}"
+                         Command="{Binding RefreshCommand}">
+                <CollectionView ItemsSource="{Binding Animals}"
+                                IsGrouped="True">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>-->
+
+            <!--<RefreshView IsRefreshing="False">
+                <CollectionView x:Name="MainCollectionView"
+                            ItemsSource="{Binding Monkeys}"
+                            RemainingItemsThreshold="5"
+                            RemainingItemsThresholdReached="MainCollectionView_RemainingItemsThresholdReached">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto" >
+                                        <SwipeItem Text="Favorite"
+                                               IconImageSource="ic_action_error_outline.png"
+                                               BackgroundColor="LightPink"/>
+                                        <SwipeItem Text="Delete"
+                                               IconImageSource="ic_action_account_circle.png"
+                                               BackgroundColor="LightBlue"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <Grid Padding="10"
+                                  BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                    <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                    <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>-->
+            <!---Vertical list-->
+            <!--<CollectionView x:Name="MainCollectionView"
+                            ItemsSource="{Binding Monkeys}"
+                            ItemsLayout="VerticalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto" >
+                                    <SwipeItem Text="Favorite"
+                                               IconImageSource="ic_action_error_outline.png"
+                                               BackgroundColor="LightPink"/>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="ic_action_account_circle.png"
+                                               BackgroundColor="LightBlue"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="10"
+                                  BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!--<CollectionView x:Name="MainCollectionView"
+                            ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto" >
+                                    <SwipeItem Text="Favorite"
+                                               IconImageSource="ic_action_error_outline.png"
+                                               BackgroundColor="LightPink"/>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="ic_action_account_circle.png"
+                                               BackgroundColor="LightBlue"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="10"
+                                  BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Vertical grid-->
+            <!--<CollectionView x:Name="MainCollectionView"
+                            ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Auto" >
+                                    <SwipeItem Text="Favorite"
+                                               IconImageSource="ic_action_error_outline.png"
+                                               BackgroundColor="LightPink"/>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="ic_action_account_circle.png"
+                                               BackgroundColor="LightBlue"/>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="10"
+                                  BackgroundColor="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                                <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                                <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Headers and footers-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            Header="Monkeys"
+                            Footer="2019">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}">
+                <CollectionView.Header>
+                    <StackLayout BackgroundColor="LightGray">
+                        <Label Margin="10,0,0,0"
+                               Text="Monkeys"
+                               FontSize="Small"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <StackLayout BackgroundColor="LightGray">
+                        <Label Margin="10,0,0,0"
+                               Text="Friends of Xamarin Monkey"
+                               FontSize="Small"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </CollectionView.Footer>
+            </CollectionView>-->
+            <!---Display a templated header and footer-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            Header="{Binding .}"
+                            Footer="{Binding .}">
+                <CollectionView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="LightGray">
+                            <Label Margin="10,0,0,0"
+                                   Text="Monkeys"
+                                   FontSize="Small"
+                                   FontAttributes="Bold" /> 
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.HeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.FooterTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="LightGray">
+                            <Label Margin="10,0,0,0"
+                                   Text="Friends of Xamarin Monkey"
+                                   FontSize="Small"
+                                   FontAttributes="Bold" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.FooterTemplate>
+            </CollectionView>-->
+            <!---Dynamic resizing of items-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Right-to-left layout: just set FlowDirection="RightToLeft" on ContentPage-->
+            <!---Single selection-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single"
+                            SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Multiple selection-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Multiple"
+                            SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Single pre-selection-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedMonkey}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Multiple pre-selection-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Multiple"
+                            SelectedItems="{Binding SelectedMonkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Change selected item color-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Display a string when data is unavailable-->
+            <!--<CollectionView ItemsSource="{Binding Monkey}"
+                            SelectionMode="Single"
+                            EmptyView="No items to display">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Display views when data is unavailable-->
+            <!--<SearchBar x:Name="MainSearchBar"
+                       SearchCommand="{Binding FilterCommand}"
+                       SearchCommandParameter="{Binding Source={x:Reference MainSearchBar}, Path=Text}"
+                       Placeholder="Filter"/>
+            <CollectionView ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label Text="No results matched your filter."
+                               Margin="10,25,10,10"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Try a broader filter?"
+                               FontAttributes="Italic"
+                               FontSize="12"
+                               HorizontalOptions="Fill"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>-->
+            <!---Choose an EmptyView at runtime 1-->
+            <!--<SearchBar x:Name="MainSearchBar"
+                       SearchCommand="{Binding FilterCommand}"
+                       SearchCommandParameter="{Binding Source={x:Reference MainSearchBar}, Path=Text}"
+                       Placeholder="Filter"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Toggle EmptyViews" />
+                <Switch Toggled="Switch_Toggled" />
+            </StackLayout>
+            <CollectionView x:Name="collectionView"
+                            ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+            <!---Choose an EmptyView at runtime 2-->
+            <!--<SearchBar x:Name="MainSearchBar"
+                       SearchCommand="{Binding FilterCommand}"
+                       SearchCommandParameter="{Binding Source={x:Reference MainSearchBar}, Path=Text}"
+                       Placeholder="Filter"/>
+            <CollectionView x:Name="collectionView"
+                            ItemsSource="{Binding Monkeys}"
+                            SelectionMode="Single"
+                            EmptyView="{Binding Source={x:Reference MainSearchBar}, Path=Text}"
+                            EmptyViewTemplate="{StaticResource SearchSelector}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Detect scrolling-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}"
+                            Scrolled="CollectionView_Scrolled"
+                            x:Name="MainCollectView"
+                            ItemsUpdatingScrollMode="KeepLastItemInView"
+                            VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+            <!---Grouping-->
+            <!--<CollectionView ItemsSource="{Binding Monkeys}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+            <!---Groupin Collection view-->
+            <CollectionView ItemsSource="{Binding Animals}"
+                                IsGrouped="True">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageUrl}"
+                                   Grid.RowSpan="2"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}"
+                               BackgroundColor="LightGray"
+                               FontSize="Large"
+                               FontAttributes="Bold" />
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.GroupFooterTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Count, StringFormat='Total animals: {0:D}'}"
+                               Margin="0,0,0,10" />
+                    </DataTemplate>
+                </CollectionView.GroupFooterTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

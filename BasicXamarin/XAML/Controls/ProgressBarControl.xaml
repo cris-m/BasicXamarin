@@ -4,11 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="BasicXamarin.DatepickerControl">
+             x:Class="BasicXamarin.XAML.Controls.ProgressBarControl">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-            <DatePicker MinimumDate="08/10/1994" MaximumDate="11/20/2019" DateSelected="DatePicker_DateSelected"  Format="dd-MMM-yyyy"/>
-            <Label x:Name="MainLabel" VerticalOptions="Center"/>
+        <StackLayout Margin="3">
+            <ProgressBar Progress="0.5"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="Fill"
+                         ProgressColor="Blue"/>  
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

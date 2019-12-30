@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.FontIcons"
+             xmlns:helper="clr-namespace:BasicXamarin.XAML.Controls.Helper">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons"/>
+                <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Gray">
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.FacebookMessenger}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Microphone}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.AccountCash}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Google}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Apple}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Microsoft}, Size=40}"/>
+            <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Android}, Size=40}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

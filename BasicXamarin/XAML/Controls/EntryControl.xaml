@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.EntryControl">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <Entry Placeholder="Username"
+                   Text="Some text"
+                   PlaceholderColor="Olive"
+                   IsReadOnly="False"
+                   MaxLength="5"
+                   CharacterSpacing="3"
+                   CursorPosition="5"
+                   SelectionLength="3"
+                   ClearButtonVisibility="WhileEditing">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>Suggestions,CapitalizeCharacter,Spellcheck,Chat</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
+            <Entry Placeholder="Password"
+                   PlaceholderColor="Olive"
+                   IsReadOnly="False"
+                   MaxLength="10"
+                   CharacterSpacing="3"
+                   IsPassword="True"
+                   Keyboard="Chat"
+                   ReturnType="Search"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                   TextColor="Red"
+                   BackgroundColor="Aqua"
+                   TextChanged="Entry_TextChanged"
+                   Completed="Entry_Completed"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

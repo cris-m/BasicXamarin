@@ -1,5 +1,4 @@
-﻿using BasicXamarin.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BasicXamarin
+namespace BasicXamarin.XAML.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Converters : ContentPage
+    public partial class FontIcons : ContentPage
     {
-        public Converters()
+        public FontIcons()
         {
             InitializeComponent();
-            BindingContext = new TaskViewModel();
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.SwitchControl">
+    <ContentPage.Content>
+        <StackLayout Margin="5"  
+                     VerticalOptions="CenterAndExpand" 
+                     HorizontalOptions="Center">
+            <!--<Switch IsToggled="True"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="Center"/>-->
+            <!---Switch appearance-->
+            <!--<Switch IsToggled="True"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="Center"
+                    OnColor="BlueViolet"
+                    ThumbColor="Blue"
+                    Toggled="Switch_Toggled"/>-->
+            <!---Data bind a Switch-->
+            <Switch x:Name="MainSwitch"
+                    HorizontalOptions="Center"
+                    IsEnabled="False"/>
+            <Label Text="Lorem ipsum dolor sit amet, elit rutrum, enim hendrerit augue vitae praesent sed non, lorem aenean quis praesent pede.">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={x:Reference MainSwitch}, Path=IsToggled}"
+                                 Value="true">
+                        <Setter Property="FontAttributes" Value="Bold, Italic" />
+                        <Setter Property="FontSize" Value="Large" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

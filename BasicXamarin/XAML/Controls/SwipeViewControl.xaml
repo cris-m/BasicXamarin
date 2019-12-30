@@ -17,7 +17,7 @@
                         <SwipeItem Text="Delete"
                                    IconImageSource="ic_action_account_circle.png"
                                    BackgroundColor="LightBlue"
-                                   Invoked="SwipeItem_Invoked"/>
+                                   Invoked="SwipeItem_Invoked_1"/>
                     </SwipeItems>
                 </SwipeView.LeftItems>
                 <SwipeView.RightItems>

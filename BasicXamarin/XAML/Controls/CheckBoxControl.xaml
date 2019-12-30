@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.CheckBoxControl">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <!--<CheckBox IsChecked="True"
+                      CheckedChanged="CheckBox_CheckedChanged"/>-->
+
+            <!---Data bind a CheckBox-->
+            <!--<CheckBox x:Name="MainCheckBox" Color="Green"/>
+            <Label FontSize="Medium" Text="Lorem ipsum dolor sit amet, elit rutrum, enim hendrerit augue vitae praesent sed non, lorem aenean quis praesent pede.">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={x:Reference MainCheckBox}, Path=IsChecked}"
+                                 Value="true">
+                        <Setter Property="FontAttributes" Value="Italic, Bold" />
+                        <Setter Property="FontSize" Value="Large" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>-->
+            <!---CheckBox visual states-->
+            <CheckBox>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonState">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Color" Value="Blue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="IsChecked">
+                            <VisualState.Setters>
+                                <Setter Property="Color" Value="Green"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </CheckBox>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

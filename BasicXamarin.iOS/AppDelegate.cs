@@ -22,8 +22,12 @@ namespace BasicXamarin.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Xamarin.Forms.Forms.SetFlags(new string[] {
+                "SwipeView_Experimental",
+                "CarouselView_Experimental",
+                "IndicatorView_Experimental"
+            });
             Xamarin.FormsMaps.Init();
-            Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);

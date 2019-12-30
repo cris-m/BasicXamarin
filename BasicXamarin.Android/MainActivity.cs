@@ -18,11 +18,18 @@ namespace BasicXamarin.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            //Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
+            //Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+            //Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
 
-            Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
+            Xamarin.Forms.Forms.SetFlags(new string[] {
+                "SwipeView_Experimental",
+                "CarouselView_Experimental",
+                "IndicatorView_Experimental"
+            });
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -10,21 +10,20 @@ using Xamarin.Forms.Xaml;
 namespace BasicXamarin.XAML.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SwipeViewControl : ContentPage
+    public partial class CheckBoxControl : ContentPage
     {
-        public SwipeViewControl()
+        public CheckBoxControl()
         {
             InitializeComponent();
         }
 
-        private void SwipeItem_Invoked(object sender, EventArgs e)
+        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-
-        }
-
-        private void SwipeItem_Invoked_1(object sender, EventArgs e)
-        {
-
+            if (e.Value)
+            {
+                // checkbox checked
+                DisplayAlert("CheckBox", "I have been checked", "ok");
+            }
         }
     }
 }

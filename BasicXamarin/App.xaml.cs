@@ -63,7 +63,6 @@ namespace BasicXamarin
             //MainPage = new OnPlatforms();
             //MainPage = new Alerts();
             //MainPage = new ActionMenus();
-            //MainPage = new SliderControl();
             //MainPage = new XReference();
             //MainPage = new DatepickerControl();
             //MainPage = new Switchs();
@@ -96,7 +95,21 @@ namespace BasicXamarin
             //MainPage = new ImageButtonControl();
             //MainPage = new RefreshViewControl();
             //MainPage = new SearchBarControl();
-            MainPage = new SwipeViewControl();
+            //MainPage = new SwipeViewControl();
+            //MainPage = new CheckBoxControl();
+            //MainPage = new SliderControl();
+            //MainPage = new StepperControl();
+            //MainPage = new SwitchControl();
+            //MainPage = new DatePickerControl();
+            //MainPage = new TimePickerControl();
+            //MainPage = new EntryControl();
+            //MainPage = new EditorControl();
+            //MainPage = new ActivityIndicatorControl();
+            //MainPage = new ProgressBarControl();
+            MainPage = new CarouselViewControl();
+            //MainPage = new FontIcons();
+            //MainPage = new CollectionViewControl();
+
 
             //****** Xamarin Essentials****
             //MainPage = new AccelerometerPage();

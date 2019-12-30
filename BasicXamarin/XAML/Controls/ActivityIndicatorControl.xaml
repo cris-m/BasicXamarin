@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="BasicXamarin.SearchbarControl">
+             x:Class="BasicXamarin.XAML.Controls.ActivityIndicatorControl">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar x:Name="MainSearchBar" 
-                       SearchButtonPressed="MainSearchBar_SearchButtonPressed"/>
-            <ListView x:Name="MainListView"/>
+            <ActivityIndicator VerticalOptions="CenterAndExpand" 
+                               IsRunning="True"
+                               Color="Gray"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

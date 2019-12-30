@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.EditorControl">
+    <ContentPage.Content>
+        <StackLayout>
+            <Editor Placeholder="Enter text here" 
+                    PlaceholderColor="Olive"
+                    IsReadOnly="False"
+                    MaxLength="200"
+                    CharacterSpacing="2"
+                    AutoSize="TextChanges"
+                    Keyboard="Chat"
+                    IsSpellCheckEnabled="True"
+                    IsTextPredictionEnabled="True">
+                <Editor.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="#a4eaff"/>
+                        <On Platform="Android, UWP" Value="#2c3e50"/>
+                    </OnPlatform>
+                </Editor.BackgroundColor>
+                <Editor.TextColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="#f2f2f2"/>
+                        <On Platform="Android, UWP" Value="#fff"/>
+                    </OnPlatform>
+                </Editor.TextColor>
+            </Editor>
+            <Editor Placeholder="Write your post" 
+                    PlaceholderColor="Olive"
+                    IsReadOnly="False"
+                    MaxLength="200"
+                    CharacterSpacing="2"
+                    AutoSize="TextChanges"
+                    TextChanged="Editor_TextChanged"
+                    Completed="Editor_Completed">
+                <Editor.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags >Suggestions,CapitalizeCharacter</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Editor.Keyboard>
+            </Editor>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

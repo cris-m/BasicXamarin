@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.DatePickerControl">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<DatePicker MaximumDate="12/31/2019"
+                        MinimumDate="01/01/2019"
+                        Date="12/01/2019"/>-->
+            <!---DatePicker in an application-->
+            <Label Text="Days Between Dates"
+                   Margin="0, 20"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Start Date:" />
+            <DatePicker x:Name="startDatePicker"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    DateSelected="OnDateSelected" />
+            <Label Text="End Date:" />
+            <DatePicker x:Name="endDatePicker"
+                    MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                          Path=Date}"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    DateSelected="OnDateSelected" />
+            <StackLayout Orientation="Horizontal"
+                     Margin="0, 0, 0, 30">
+                <Label Text="Include both days in total: "
+                   VerticalOptions="Center" />
+                <Switch x:Name="includeSwitch"
+                    Toggled="OnSwitchToggled" />
+            </StackLayout>
+            <Label x:Name="resultLabel"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

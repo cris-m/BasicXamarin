@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace BasicXamarin.XAML.Controls.Module
 {
-    class RefreshViewModel : INotifyPropertyChanged
+    public class RefreshViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         const int refreshingDuration = 2;
