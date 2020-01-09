@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.TableViewControl"
+             xmlns:helper="clr-namespace:BasicXamarin.XAML.Controls.Helper">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons"/>
+                <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!--<TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Ring">
+                        <SwitchCell Text="New Voice Mail"/>
+                        <SwitchCell Text="New Main" On="True"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>-->
+        <!--Custom cells-->
+        <!--<TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Getting Started">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="WhiteSmoke">
+                                <Image Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helper:IconFont.Lightbulb}, Size=40}"/>
+                                <Label Text="Left" TextColor="#f35e20"/>
+                                <Label Text="right"
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="#503026" />
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>-->
+        
+        <!---Data intent-->
+        <!--<TableView Intent="Data" 
+               HasUnevenRows="true" >
+            <TableRoot>
+                <TableSection Title="First Section">
+                    <TextCell Text="TextCell" 
+                          Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" 
+                           Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" 
+                           Detail="ImageCell Detail" 
+                           ImageSource="icon.png" />
+                </TableSection>
+                <TableSection Title="Second Section">
+                    <TextCell Text="TextCell" 
+                          Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" 
+                           Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" 
+                           Detail="ImageCell Detail" 
+                           ImageSource="icon.png.png" />
+                    <ViewCell x:Name="_viewCell" 
+                          Tapped="_viewCell_Tapped">
+                        <Grid Margin="15,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Tap this cell." />
+                            <Label x:Name="_target" 
+                               Grid.Row="1"
+                               Text="The cell has changed size." 
+                               IsVisible="false" />
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>-->
+        
+        <!---Form Intent-->
+        <!--<TableView Intent="Form">
+            <TableRoot>
+                <TableSection Title="First Section">
+                    <TextCell Text="TextCell" Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" Detail="ImageCell Detail" ImageSource="icon.png" />
+                </TableSection>
+                <TableSection Title="Second Section">
+                    <TextCell Text="TextCell" Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" Detail="ImageCell Detail" ImageSource="icon.png" />
+                </TableSection>
+            </TableRoot>
+        </TableView>-->
+        
+        <!---Menu Intent-->
+        <TableView Intent="Menu">
+            <TableRoot>
+                <TableSection Title="First Section">
+                    <TextCell Text="TextCell" Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" Detail="ImageCell Detail" ImageSource="icon.png" />
+                </TableSection>
+                <TableSection Title="Second Section">
+                    <TextCell Text="TextCell" Detail="TextCell Detail" />
+                    <EntryCell Label="Entry Label" Text="EntryCell Text" />
+                    <SwitchCell Text="SwitchCell Text" />
+                    <ImageCell Text="ImageCell Text" Detail="ImageCell Detail" ImageSource="icon.png" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

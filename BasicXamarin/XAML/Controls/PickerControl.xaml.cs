@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BasicXamarin
+namespace BasicXamarin.XAML.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Pickers : ContentPage
+    public partial class PickerControl : ContentPage
     {
-        public Pickers()
+        public PickerControl()
         {
             InitializeComponent();
             MainPicker.ItemsSource = new List<string>

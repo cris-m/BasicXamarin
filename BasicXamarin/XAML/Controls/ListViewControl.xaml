@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.XAML.Controls.ListViewControl"
+             xmlns:local="clr-namespace:BasicXamarin.XAML.Controls.Module">
+  <ContentPage.Content>
+      <StackLayout>
+          <!---Simple Listview-->
+            <!--<ListView>
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Mono</x:String>
+                        <x:String>MonoAndroid</x:String>
+                        <x:String>MonoTouch</x:String>
+                        <x:String>MonoRail</x:String>
+                        <x:String>MonoDeveloper</x:String>
+                        <x:String>MonoPoly</x:String>
+                        <x:String>MonoModal</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>-->
+          <!---Data binding-->
+            <!--<ListView x:Name="MainListView"
+                      ItemsSource="{Binding Employees}">
+                <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding DisplayName}"/>
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          <!---TextCell-->
+            <!--<ListView ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Detail}" DetailColor="Gray"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          <!---ImageCell-->
+            <!--<ListView ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" Detail="{Binding Detail}" ImageSource="{Binding Image}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          
+          <!---Custom Cell-->
+            <!--<ListView ItemsSource="{Binding Items}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="{Binding Image}"/>
+                                <Label Text="{Binding Name}"
+                                       TextColor="#f35e20"/>
+                                <Label Text="{Binding Detail}"
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="#503026"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          <!---Grouping-->
+            <!--<ListView x:Name="MainListView"
+                      GroupDisplayBinding="{Binding Name}"
+                      GroupShortNameBinding="{Binding ShortName}"
+                      IsGroupingEnabled="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Brand}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          <!---Customizing Grouping-->
+            <!--<ListView x:Name="MainListView"
+                  GroupDisplayBinding="{Binding Name}"
+                  GroupShortNameBinding="{Binding ShortName}"
+                  IsGroupingEnabled="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding Brand}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding ShortName}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>-->
+          <!---Head-->
+            <!--<ListView x:Name="MainListView"
+                  GroupDisplayBinding="{Binding Name}"
+                  GroupShortNameBinding="{Binding ShortName}"
+                  IsGroupingEnabled="true"
+                  Header="Header"
+                  Footer="Footer">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding Brand}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding ShortName}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>-->
+            <!--<ListView x:Name="MainListView"
+                  GroupDisplayBinding="{Binding Name}"
+                  GroupShortNameBinding="{Binding ShortName}"
+                  IsGroupingEnabled="true"
+                  HorizontalScrollBarVisibility="Always"
+                  VerticalScrollBarVisibility="Always"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="Green"
+                      RowHeight="100"
+                      HasUnevenRows="True">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Header"
+                               TextColor="Olive"
+                               BackgroundColor="Red" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.Footer>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Footer"
+                               TextColor="Gray"
+                               BackgroundColor="Blue" />        
+                    </StackLayout>
+                </ListView.Footer>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding Brand}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                              Detail="{Binding ShortName}"
+                              TextColor="#f35e20"
+                              DetailColor="#503026" />
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>-->
+            <!--Context actions-->
+            <!--<ListView x:Name="MainListView"
+                      IsPullToRefreshEnabled="True"
+                      RefreshControlColor="Red"
+                      Scrolled="MainListView_Scrolled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="MenuItem_Clicked"
+                                          CommandParameter="{Binding .}"
+                                          Text="More"/>
+                                <MenuItem Clicked="MenuItem_Clicked_1"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout>
+                                <Label Text="{Binding .}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+          <!---Customer ViewCell-->
+            <ListView x:Name="MainListView" CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:CustomerViewCell Name="{Binding Name}" Age="{Binding Age}" Location="{Binding Location}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

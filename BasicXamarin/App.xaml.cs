@@ -68,8 +68,7 @@ namespace BasicXamarin
             //MainPage = new Switchs();
             //MainPage = new Progressbars();
             //MainPage = new NavigationPage(new ToolBars());
-            //MainPage = new SearchbarControl();
-            //MainPage = new Pickers();
+
 
             //**** Get started**********
             //MainPage = new SinglePage();
@@ -106,9 +105,12 @@ namespace BasicXamarin
             //MainPage = new EditorControl();
             //MainPage = new ActivityIndicatorControl();
             //MainPage = new ProgressBarControl();
-            MainPage = new CarouselViewControl();
+            //MainPage = new CarouselViewControl();
             //MainPage = new FontIcons();
             //MainPage = new CollectionViewControl();
+            //MainPage = new ListViewControl();
+            //MainPage = new PickerControl();
+            //MainPage = new TableViewControl();
 
 
             //****** Xamarin Essentials****
@@ -117,6 +119,10 @@ namespace BasicXamarin
             //MainPage = new BarometerPage();
             //MainPage = new BatteryPage();
             //MainPage = new NavigationPage(new LoginClipboard());
+            //MainPage = new CompassPage(); // not done
+            //MainPage = new ConnectivityPage();
+            MainPage = new GeocodingPage();
+
         }
 
         protected override void OnStart()
