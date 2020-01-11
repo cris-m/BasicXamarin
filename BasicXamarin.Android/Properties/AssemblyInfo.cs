@@ -35,4 +35,6 @@ using Android.App;
 [assembly: UsesPermission(Android.Manifest.Permission.BatteryStats)]
 [assembly: UsesPermission(Android.Manifest.Permission.AccessCoarseLocation)]
 [assembly: UsesPermission(Android.Manifest.Permission.AccessFineLocation)]
+[assembly: UsesPermission(Android.Manifest.Permission.Flashlight)]
+[assembly: UsesPermission(Android.Manifest.Permission.Camera)]
 [assembly: MetaData("com.google.android.maps.v2.API_KEY", Value ="AIzaSyBQoHpAcmXmK8w66XcvY203OMAbLOvaTU4")]

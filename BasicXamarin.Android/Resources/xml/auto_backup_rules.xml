@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <full-backup-content>
+    <include domain="sharedpref" path="."/>
+  <!--Disable Secure storage backup-->
+    <exclude domain="sharedpref" path="${applicationId}.xamarinessentials.xml"/>
+</full-backup-content>

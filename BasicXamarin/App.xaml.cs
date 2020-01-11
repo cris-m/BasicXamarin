@@ -121,8 +121,16 @@ namespace BasicXamarin
             //MainPage = new NavigationPage(new LoginClipboard());
             //MainPage = new CompassPage(); // not done
             //MainPage = new ConnectivityPage();
-            MainPage = new GeocodingPage();
-
+            //MainPage = new GeocodingPage();
+            //MainPage = new DeviceShakePage();
+            //MainPage = new DeviceDisplayInfoPage();
+            //MainPage = new FlashlightPage();
+            //MainPage = new GyroscopePage();
+            //MainPage = new LauncherPage();
+            //MainPage = new PhoneDialerPage();
+            //MainPage = new PreferencesPage();
+            //MainPage = new SecureStoragePage();
+            MainPage = new SharePage();
         }
 
         protected override void OnStart()

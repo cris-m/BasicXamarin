@@ -44,5 +44,9 @@
 	<array>
 		<string>materialdesignicons-webfont.ttf</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+	</array>
 </dict>
 </plist>
