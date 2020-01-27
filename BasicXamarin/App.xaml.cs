@@ -130,7 +130,12 @@ namespace BasicXamarin
             //MainPage = new PhoneDialerPage();
             //MainPage = new PreferencesPage();
             //MainPage = new SecureStoragePage();
-            MainPage = new SharePage();
+            //MainPage = new SharePage();
+            //MainPage = new SmsPage();
+            //MainPage = new TextToSpeechPage();
+            //MainPage = new VibrationPage();
+            //MainPage = new VersionTrackingPage();
+            //MainPage = new EmailPage();
         }
 
         protected override void OnStart()
