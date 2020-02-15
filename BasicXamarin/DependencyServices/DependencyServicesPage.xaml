@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.DependencyServices.DependencyServicesPage">
+    <ContentPage Title="Device Orientation">
+        <ContentPage.Content>
+            <StackLayout Margin="20,35,20,20">
+                <Label Text="Device Orientation"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+                <Button Text="Get Device Orientation"
+                        Clicked="Button_Clicked"/>
+                <Label x:Name="MainText"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Photo Picker">
+        <StackLayout Margin="20,35,20,20">
+            <Label Text="Photo Picker"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            <Button Text="Pick Photo"
+                    Clicked="Button_Clicked_1"/>
+            <Image x:Name="MainImage"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   Aspect="AspectFit"/>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

@@ -6,12 +6,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.Threading.Tasks;
+using System.IO;
+using Android.Content;
 
 namespace BasicXamarin.Droid
 {
     [Activity(Label = "BasicXamarin", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        internal static MainActivity Instance { get; private set; }
+        public static readonly int PickImageId = 1000;
+        public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -21,6 +27,8 @@ namespace BasicXamarin.Droid
             //Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
             //Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             //Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
+
+            Instance = this;
 
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "SwipeView_Experimental",
@@ -37,6 +45,23 @@ namespace BasicXamarin.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if(requestCode == PickImageId)
+            {
+                if(resultCode == Result.Ok && data != null)
+                {
+                    Android.Net.Uri uri = data.Data;
+                    Stream stream = ContentResolver.OpenInputStream(uri);
+                    PickImageTaskCompletionSource.SetResult(stream);
+                }
+                else
+                {
+                    PickImageTaskCompletionSource.SetResult(null);
+                }
+            }
         }
     }
 }

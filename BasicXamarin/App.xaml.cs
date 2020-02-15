@@ -1,4 +1,5 @@
-﻿using BasicXamarin.Essentials;
+﻿using BasicXamarin.DependencyServices;
+using BasicXamarin.Essentials;
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
 using BasicXamarin.XAML;
@@ -136,6 +137,7 @@ namespace BasicXamarin
             //MainPage = new VibrationPage();
             //MainPage = new VersionTrackingPage();
             //MainPage = new EmailPage();
+            MainPage = new DependencyServicesPage();
         }
 
         protected override void OnStart()
