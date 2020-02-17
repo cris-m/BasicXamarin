@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicXamarin.BackgroundService.PersistDataTaskPage"
+             Title="Persist Data Service">
+    <ContentPage.Content>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Sleep Data"/>
+            <Entry Placeholder="Data" IsEnabled="False" Grid.Column="1" Text="{Binding Date}"/>
+            <Label Grid.Row="1" Text="Name"/>
+            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Name" Text="{Binding Firstname, Mode=TwoWay}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using BasicXamarin.DependencyServices;
+﻿using BasicXamarin.BackgroundService;
+using BasicXamarin.DependencyServices;
 using BasicXamarin.Essentials;
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
@@ -137,22 +138,45 @@ namespace BasicXamarin
             //MainPage = new VibrationPage();
             //MainPage = new VersionTrackingPage();
             //MainPage = new EmailPage();
-            MainPage = new DependencyServicesPage();
+
+
+            /*Davanced Concept*/
+            //MainPage = new DependencyServicesPage();
+            MainPage = new BackgroundTask();
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            // load persist data on start
+            LoadPersistData();
         }
-
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            // handle persistance data. when application go in the background keep the data
+            Application.Current.Properties["SleepData"] = DateTime.Now.ToShortDateString();
+            if(!string.IsNullOrEmpty(PersistDataTaskPage.ModalData.Firstname))
+                Application.Current.Properties["FirstName"] = PersistDataTaskPage.ModalData.Firstname;
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            // when the app is resume load the persist data
+            LoadPersistData();
+        }
+        private void LoadPersistData()
+        {
+
+            if (Application.Current.Properties.ContainsKey("SleepData"))
+            {
+                PersistDataTaskPage.ModalData.Date = Convert.ToDateTime(Application.Current.Properties["SleepData"]);
+            }
+            if (Application.Current.Properties.ContainsKey("FirstName"))
+            {
+                PersistDataTaskPage.ModalData.Firstname = Application.Current.Properties["FirstName"].ToString();
+            }
         }
     }
 }

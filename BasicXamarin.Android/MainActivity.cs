@@ -9,6 +9,9 @@ using Android.OS;
 using System.Threading.Tasks;
 using System.IO;
 using Android.Content;
+using Xamarin.Forms;
+using BasicXamarin.BackgroundService.Service;
+using BasicXamarin.Droid.Services;
 
 namespace BasicXamarin.Droid
 {
@@ -28,8 +31,27 @@ namespace BasicXamarin.Droid
             //Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             //Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
 
-            Instance = this;
+            #region Long Running Task
+            MessagingCenter.Subscribe<StartLongRunningTaskMessage>(this, "StartLongRunningTaskMessage", message =>
+            {
+                var intent = new Intent(this, typeof(AndroidLongRunningTaskService));
+                StartService(intent);
+            });
+            MessagingCenter.Subscribe<StopLongRunningTaskMessage>(this, "StopLongRunningTaskMessage", message =>
+            {
+                var intent = new Intent(this, typeof(AndroidLongRunningTaskService));
+                StopService(intent);
+            });
+            #endregion
+            #region Download Task
+            MessagingCenter.Subscribe<DownloadMessage>(this, "Download", message => {
+                var intent = new Intent(this, typeof(DownloaderService));
+                intent.PutExtra("url", message.Url);
+                StartService(intent);
+            });
+            #endregion
 
+            Instance = this;
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "SwipeView_Experimental",
                 "CarouselView_Experimental",

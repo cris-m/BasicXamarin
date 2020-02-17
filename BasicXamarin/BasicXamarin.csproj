@@ -32,6 +32,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="BackgroundService\BackgroundTask.xaml.cs">
+      <DependentUpon>BackgroundTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="BackgroundService\DownloadTaskPage.xaml.cs">
+      <DependentUpon>DownloadTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="BackgroundService\LongRunningTaskPage.xaml.cs">
+      <DependentUpon>LongRunningTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="BackgroundService\PersistDataTaskPage.xaml.cs">
+      <DependentUpon>PersistDataTaskPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="DependencyServices\DependencyServicesPage.xaml.cs">
       <DependentUpon>DependencyServicesPage.xaml</DependentUpon>
     </Compile>
