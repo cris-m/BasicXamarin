@@ -20,6 +20,7 @@ namespace BasicXamarin.Droid
     {
         internal static MainActivity Instance { get; private set; }
         public static readonly int PickImageId = 1000;
+
         public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.Triggers.TriggerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:BasicXamarin.Triggers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryTriggerStyle" TargetType="Entry">
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="Yellow" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <local:MultiTriggerConverter x:Key="dataHasBeenEntered" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Entry Placeholder="Enter name">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="Yellow" />
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>-->
+            <!--  Applying a Trigger using a Style  -->
+            <!--<Entry Placeholder="Enter name" Style="{StaticResource EntryTriggerStyle}" />-->
+            <!--  Data Triggers  -->
+            <!--<Entry
+                x:Name="MainEntry"
+                FontSize="Large"
+                Placeholder="Enter your name"
+                Text="" />
+            <Button FontSize="Large" Text="Save">
+                <Button.Triggers>
+                    <DataTrigger
+                        Binding="{Binding Source={x:Reference MainEntry}, Path=Text.Length}"
+                        TargetType="Button"
+                        Value="0">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>-->
+            <!--  Event Triggers  -->
+            <!--<Entry
+                FontSize="Large"
+                Placeholder="Enter your age"
+                Text="">
+                <Entry.Triggers>
+                    <EventTrigger Event="TextChanged">
+                        <local:NumericValidationTriggerAction />
+                    </EventTrigger>
+                </Entry.Triggers>
+            </Entry>-->
+            <!--  Multi Triggers  -->
+            <!--<Entry
+                x:Name="username"
+                FontSize="Large"
+                Placeholder="Username"
+                Text="" />
+            <Entry
+                x:Name="password"
+                FontSize="Large"
+                Placeholder="Password"
+                Text="" />
+            <Button IsEnabled="False" Text="Add Account">
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference username}, Path=Text.Length, Converter={StaticResource dataHasBeenEntered}}" Value="true" />
+                            <BindingCondition Binding="{Binding Source={x:Reference password}, Path=Text.Length, Converter={StaticResource dataHasBeenEntered}}" Value="true" />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="True" />
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>-->
+            <!--  EnterActions and ExitActions  -->
+            <!--<Entry>
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="Entry.IsFocused" Value="True">
+                        <Trigger.EnterActions>
+                            <local:FadeTriggerAction StartsFrom="0" />
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <local:FadeTriggerAction StartsFrom="1" />
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>-->
+            <!--  Adaptive Trigger (PREVIEW)  -->
+            <!--<Grid>
+                <Frame
+                    Margin="24"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="MainCheckBox" VerticalOptions="Center" />
+                        <Label Text="Checked/Uncheck the CheckBox to modify the Grid BackgroundColor" VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Checked">
+                            <VisualState.StateTriggers>
+                                <CompareStateTrigger Property="{Binding IsChecked, Source={x:Reference MainCheckBox}}" Value="True" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="UnChecked">
+                            <VisualState.StateTriggers>
+                                <CompareStateTrigger Property="{Binding IsChecked, Source={x:Reference MainCheckBox}}" Value="False" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>-->
+
+            <!--  Device Trigger (PREVIEW)  -->
+            <!--<Grid>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="This page changes the color based on the device where the App is running."
+                    VerticalOptions="Center" />
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Android">
+                            <VisualState.StateTriggers>
+                                <DeviceStateTrigger Device="Android" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="iOS">
+                            <VisualState.StateTriggers>
+                                <DeviceStateTrigger Device="iOS" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>-->
+
+            <!--  Orientation Trigger  -->
+            <Grid>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="This Grid changes the color based on the orientation device where the App is running."
+                    VerticalOptions="Center" />
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Landscape">
+                            <VisualState.StateTriggers>
+                                <OrientationStateTrigger Orientation="Landscape" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Portrait">
+                            <VisualState.StateTriggers>
+                                <OrientationStateTrigger Orientation="Portrait" />
+                            </VisualState.StateTriggers>
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

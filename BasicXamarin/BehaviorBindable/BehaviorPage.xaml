@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.BehaviorBindable.BehaviorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:BasicXamarin.BehaviorBindable"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NumericValidationStyle" TargetType="Entry">
+                <Style.Setters>
+                    <Setter Property="local:NumericValidationBehavior.AttachBehavior" Value="True" />
+                </Style.Setters>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <!--<Entry
+                x:Name="MainEntry"
+                Placeholder="Enter number"
+                VerticalOptions="Center">
+                <Entry.Behaviors>
+                    <local:NumericValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>-->
+            <!--  Consuming a Xamarin.Forms Behavior with a Style  -->
+            <Entry
+                x:Name="MainEntry"
+                Placeholder="Enter number"
+                Style="{StaticResource NumericValidationStyle}"
+                VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

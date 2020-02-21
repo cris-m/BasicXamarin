@@ -1,8 +1,10 @@
 ﻿using BasicXamarin.BackgroundService;
+using BasicXamarin.BehaviorBindable;
 using BasicXamarin.DependencyServices;
 using BasicXamarin.Essentials;
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
+using BasicXamarin.Triggers;
 using BasicXamarin.XAML;
 using BasicXamarin.XAML.Controls;
 using System;
@@ -30,7 +32,7 @@ namespace BasicXamarin
         public App()
         {
             InitializeComponent();
-
+            Device.SetFlags(new string[] { "StateTriggers_Experimental" });
             //MainPage = new MainPage();
 
             //MainPage = new LabelButtonEntry();
@@ -142,7 +144,9 @@ namespace BasicXamarin
 
             /*Davanced Concept*/
             //MainPage = new DependencyServicesPage();
-            MainPage = new BackgroundTask();
+            //MainPage = new BackgroundTask();
+            //MainPage = new BehaviorPage();
+            MainPage = new TriggerPage();
         }
 
         protected override void OnStart()

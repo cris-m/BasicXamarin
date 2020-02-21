@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.302-beta" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.4.0-pre2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.0-pre1" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.282-pre4" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="4.5.0.282-pre4" />
   </ItemGroup>
@@ -81,6 +81,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Alerts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BehaviorBindable\BehaviorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Essentials\AccelerometerPage.xaml">
@@ -186,6 +189,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Page2Tab.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Triggers\TriggerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="XAML\Controls\PickerControl.xaml">
