@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.Testing.UITest.UITestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Welcome to Xamarin.Forms!" />
+            <Entry
+                x:Name="ValueAEntry"
+                AutomationId="EntryA"
+                FontSize="Large" />
+            <Entry
+                x:Name="ValueBEntry"
+                AutomationId="EntryB"
+                FontSize="Large" />
+            <Button
+                AutomationId="AddButton"
+                BackgroundColor="Blue"
+                Clicked="Button_Clicked"
+                FontSize="Large"
+                Text="Add"
+                TextColor="White" />
+            <Button
+                BackgroundColor="Teal"
+                Clicked="Button_Clicked_1"
+                FontSize="Large"
+                Text="Multiply"
+                TextColor="White" />
+            <Label
+                x:Name="ResultLabel"
+                AutomationId="ResultLabel"
+                FontSize="Large"
+                HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

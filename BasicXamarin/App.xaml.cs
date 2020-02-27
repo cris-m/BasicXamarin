@@ -4,6 +4,8 @@ using BasicXamarin.DependencyServices;
 using BasicXamarin.Essentials;
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
+using BasicXamarin.MediaElements;
+using BasicXamarin.Testing.UITest;
 using BasicXamarin.Triggers;
 using BasicXamarin.XAML;
 using BasicXamarin.XAML.Controls;
@@ -31,8 +33,9 @@ namespace BasicXamarin
         }
         public App()
         {
-            InitializeComponent();
             Device.SetFlags(new string[] { "StateTriggers_Experimental" });
+            Device.SetFlags(new string[] { "MediaElement_Experimental" });
+            InitializeComponent();
             //MainPage = new MainPage();
 
             //MainPage = new LabelButtonEntry();
@@ -146,7 +149,10 @@ namespace BasicXamarin
             //MainPage = new DependencyServicesPage();
             //MainPage = new BackgroundTask();
             //MainPage = new BehaviorPage();
-            MainPage = new TriggerPage();
+            //MainPage = new TriggerPage();
+            //MainPage = new UITestPage();
+            //MainPage = new PlayRemoteMedia();
+            MainPage = new PlayLocalMedia();
         }
 
         protected override void OnStart()

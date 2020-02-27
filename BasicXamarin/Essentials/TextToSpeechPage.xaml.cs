@@ -64,7 +64,7 @@ namespace BasicXamarin.Essentials
             CancelTextToSpeech();
             DisplayAlert("Info", "Text to speech cancel successfuly", "OK");
         }
-        bool isBusy = false;
+        public bool isBusy = false;
         public void SpeackMuliple()
         {
             //isBusy = true;

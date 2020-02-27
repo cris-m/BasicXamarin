@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.MediaElements.PlayRemoteMedia"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <MediaElement
+            AutoPlay="True"
+            MediaEnded="MediaElement_MediaEnded"
+            MediaFailed="MediaElement_MediaFailed"
+            MediaOpened="MediaElement_MediaOpened"
+            SeekCompleted="MediaElement_SeekCompleted"
+            ShowsPlaybackControls="True"
+            Source="https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4" />
+    </ContentPage.Content>
+</ContentPage>

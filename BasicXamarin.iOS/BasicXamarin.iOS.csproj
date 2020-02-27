@@ -130,12 +130,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.0-pre1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.0" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.5.0.282-pre4</Version>
+      <Version>4.5.0.356</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.Maps">
-      <Version>4.5.0.282-pre4</Version>
+      <Version>4.5.0.356</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -150,5 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\testvideo.mp4" />
   </ItemGroup>
 </Project>
