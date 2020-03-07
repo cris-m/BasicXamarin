@@ -4,13 +4,18 @@ using BasicXamarin.DependencyServices;
 using BasicXamarin.Essentials;
 using BasicXamarin.GetStarted;
 using BasicXamarin.GetStarted.Models;
+using BasicXamarin.Localization;
+using BasicXamarin.Localization.Resources;
 using BasicXamarin.MediaElements;
 using BasicXamarin.Testing.UITest;
 using BasicXamarin.Triggers;
 using BasicXamarin.XAML;
 using BasicXamarin.XAML.Controls;
+using Plugin.Multilingual;
 using System;
 using System.IO;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,8 +38,11 @@ namespace BasicXamarin
         }
         public App()
         {
-            Device.SetFlags(new string[] { "StateTriggers_Experimental" });
-            Device.SetFlags(new string[] { "MediaElement_Experimental" });
+            Device.SetFlags(new string[] 
+            { 
+                //"StateTriggers_Experimental",
+                "MediaElement_Experimental"
+            });
             InitializeComponent();
             //MainPage = new MainPage();
 
@@ -151,23 +159,29 @@ namespace BasicXamarin
             //MainPage = new BehaviorPage();
             //MainPage = new TriggerPage();
             //MainPage = new UITestPage();
-            //MainPage = new PlayRemoteMedia();
-            MainPage = new PlayLocalMedia();
+            //MainPage = new PlayRemoteVideoMedia();
+            //MainPage = new PlayLocalVideoMedia();
+            //MainPage = new PlayRemoteAudioMedia();
+            //MainPage = new BindableLayoutControl();
+            var culture = CrossMultilingual.Current.DeviceCultureInfo;
+            AppResources.Culture = culture;
+            MainPage = new LocalisationPage();
+
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
             // load persist data on start
-            LoadPersistData();
+            //LoadPersistData();
         }
         protected override void OnSleep()
         {
             // Handle when your app sleeps
             // handle persistance data. when application go in the background keep the data
-            Application.Current.Properties["SleepData"] = DateTime.Now.ToShortDateString();
-            if(!string.IsNullOrEmpty(PersistDataTaskPage.ModalData.Firstname))
-                Application.Current.Properties["FirstName"] = PersistDataTaskPage.ModalData.Firstname;
+            //Application.Current.Properties["SleepData"] = DateTime.Now.ToShortDateString();
+            //if(!string.IsNullOrEmpty(PersistDataTaskPage.ModalData.Firstname))
+            //    Application.Current.Properties["FirstName"] = PersistDataTaskPage.ModalData.Firstname;
         }
 
         protected override void OnResume()

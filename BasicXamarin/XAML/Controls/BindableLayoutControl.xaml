@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.XAML.Controls.BindableLayoutControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <StackLayout
+                Margin="20,10,0,0"
+                BindableLayout.ItemsSource="{Binding User.TopFollowers}"
+                Orientation="Horizontal">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <control:CircleImage
+                            Margin="-19,0,0,0"
+                            Aspect="AspectFill"
+                            BorderColor="LightGray"
+                            BorderThickness="1"
+                            HeightRequest="70"
+                            Source="{Binding}"
+                            WidthRequest="70" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

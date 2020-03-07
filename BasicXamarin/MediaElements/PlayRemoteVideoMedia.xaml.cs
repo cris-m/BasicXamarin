@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace BasicXamarin.MediaElements
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PlayRemoteMedia : ContentPage
+    public partial class PlayRemoteVideoMedia : ContentPage
     {
-        public PlayRemoteMedia()
+        public PlayRemoteVideoMedia()
         {
             InitializeComponent();
         }

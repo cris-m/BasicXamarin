@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.MediaElements.PlayRemoteAudioMedia"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <MediaElement ShowsPlaybackControls="True" Source="https://sec.ch9.ms/ch9/94a2/1e1e55c2-8c33-4f2f-8cc0-413e8ae794a2/MemoryManagement.mp3" />
+    </ContentPage.Content>
+</ContentPage>

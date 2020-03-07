@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.Localization.LocalisationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18n="clr-namespace:BasicXamarin.Localization.Helper"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label
+                LineBreakMode="WordWrap"
+                Text="{i18n:Translate HelloWorld}"
+                VerticalOptions="Center" />
+            <Label
+                x:Name="LabelTranslate"
+                Margin="0,20,0,0"
+                FontSize="Large"
+                LineBreakMode="WordWrap"
+                Text="Translate this automatically"
+                VerticalOptions="Center" />
+            <Picker
+                x:Name="PickerLanguages"
+                ItemDisplayBinding="{Binding DisplayName}"
+                ItemsSource="{Binding Languages}"
+                VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

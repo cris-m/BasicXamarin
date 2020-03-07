@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="BasicXamarin.MediaElements.PlayLocalMedia"
+    x:Class="BasicXamarin.MediaElements.PlayLocalVideoMedia"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -21,13 +21,5 @@
             SeekCompleted="MediaElement_SeekCompleted"
             ShowsPlaybackControls="True"
             Source="{Binding ., Converter={StaticResource VideoSourceConverter}}" />
-        <!--<MediaElement
-            AutoPlay="True"
-            MediaEnded="MediaElement_MediaEnded"
-            MediaFailed="MediaElement_MediaFailed"
-            MediaOpened="MediaElement_MediaOpened"
-            SeekCompleted="MediaElement_SeekCompleted"
-            ShowsPlaybackControls="True"
-            Source="ms-appx:///TestVideo.mp4" />-->
     </ContentPage.Content>
 </ContentPage>

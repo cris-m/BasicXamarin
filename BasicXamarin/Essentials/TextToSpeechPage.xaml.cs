@@ -18,7 +18,7 @@ namespace BasicXamarin.Essentials
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private  void Button_Clicked(object sender, EventArgs e)
         {
             //await SpeakNow(MainText.Text);
             //await SpeakNow2(MainText.Text);

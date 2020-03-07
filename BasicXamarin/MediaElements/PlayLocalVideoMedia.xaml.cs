@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace BasicXamarin.MediaElements
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PlayLocalMedia : ContentPage
+    public partial class PlayLocalVideoMedia : ContentPage
     {
-        public PlayLocalMedia()
+        public PlayLocalVideoMedia()
         {
             InitializeComponent();
             this.BindingContext = "testvideo.mp4";
