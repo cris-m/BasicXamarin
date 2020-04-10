@@ -1,13 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="MultilingualAppToolkit">
+    <MultilingualAppToolkitVersion>4.0</MultilingualAppToolkitVersion>
+    <MultilingualFallbackLanguage>en-US</MultilingualFallbackLanguage>
+    <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
+    <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
+  <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
+    <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
+  </Target>
   <ItemGroup>
     <Compile Remove="Controls\**" />
     <EmbeddedResource Remove="Controls\**" />
@@ -23,9 +34,9 @@
     <PackageReference Include="Plugin.Multilingual" Version="1.1.6-beta" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.302-beta" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.1.1.1-beta" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.379-pre1" />
-    <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.379-pre1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.616-pre4" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.616-pre4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="BackgroundService\BackgroundTask.xaml.cs">
@@ -128,10 +139,16 @@
     <EmbeddedResource Update="Essentials\GeocodingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\GeolocationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Essentials\GyroscopePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Essentials\LauncherPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\PermissionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Essentials\PhoneDialerPage.xaml">
@@ -152,10 +169,22 @@
     <EmbeddedResource Update="Essentials\TextToSpeechPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\ThemeDetectPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\Theme\DarkTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\Theme\LightTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Essentials\VersionTrackingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Essentials\VibrationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\Views\ThemeSelection.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="GetStarted\DatabasePage.xaml">
@@ -179,9 +208,33 @@
     <EmbeddedResource Update="Localization\LocalisationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.ja.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.ko.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\Resources\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.ro.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\AppResources.zh-Hans.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginClipboard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -22,7 +22,7 @@ namespace BasicXamarin.Localization.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BasicXamarin.Localization.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BasicXamarin.Localization.Resources.AppResources", typeof(AppResources).Assembly);
@@ -51,7 +51,7 @@ namespace BasicXamarin.Localization.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,11 +61,20 @@ namespace BasicXamarin.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello from App Resources.
+        ///   Looks up a localized string similar to Hello from my app resources.
         /// </summary>
-        internal static string HelloWorld {
+        public static string HelloWorld {
             get {
                 return ResourceManager.GetString("HelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }

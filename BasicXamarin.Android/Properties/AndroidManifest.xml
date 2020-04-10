@@ -2,6 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.basicxamarin" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21"/>
 	<!--<application android:label="BasicXamarin.Android" android:fullBackupContent="@xml/auto_backup_rules"></application>-->
-  <application android:label="BasicXamarin.Android"></application>
+  <application android:label="BasicXamarin.Android" android:supportsRtl="true"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

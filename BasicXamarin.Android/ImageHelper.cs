@@ -53,7 +53,7 @@ namespace BasicXamarin.Droid
 						var options = new BitmapFactory.Options
 						{
 							InSampleSize = 1,
-							InPurgeable = true
+							//InPurgeable = true
 						};
 
 						var bit = BitmapFactory.DecodeStream(imageUrl.OpenStream(), null, options);

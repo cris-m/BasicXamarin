@@ -1,25 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="BasicXamarin.App">
+<Application
+    x:Class="BasicXamarin.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Application.Resources>
-        <!---Application Style-->
-        <!---Color-->
+        <!--  -Themes  -->
+        <ResourceDictionary Source="Essentials/Theme/LightTheme.xaml" />
+        <!--<ResourceDictionary Source="/Essentials/Theme/DarkTheme.xaml" />-->
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{DynamicResource NavigationBarColor}" />
+            <Setter Property="BarTextColor" Value="{DynamicResource SecondaryColor}" />
+        </Style>
+
+        <!--  -Application Style  -->
+        <!--  -Color  -->
         <Color x:Key="AppBackground">#C0C0C0</Color>
         <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
         <Color x:Key="AndroidNavigationBarColor">#87CEFA</Color>
-        
-        <!---Implicite style-->
-        <Style TargetType="NavigationPage">
-            <Setter Property="BackgroundColor" 
-                    Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor}, Android={StaticResource AndroidNavigationBarColor}}">
-            </Setter>
-        </Style>
+
+        <!--  -Implicite style  -->
+        <!--<Style TargetType="NavigationPage">
+        -->
+        <!--<Setter Property="BackgroundColor" Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor}, Android={StaticResource AndroidNavigationBarColor}}" />-->
+        <!--
+        </Style>-->
         <Style TargetType="ContentPage">
-            <Setter Property="BackgroundColor" Value="{StaticResource AppBackground}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource AppBackground}" />
         </Style>
     </Application.Resources>
 </Application>

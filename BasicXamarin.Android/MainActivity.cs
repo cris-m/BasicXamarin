@@ -52,6 +52,10 @@ namespace BasicXamarin.Droid
             });
             #endregion
 
+            #region Localisation
+            //Window.DecorView.LayoutDirection = LayoutDirection.Rtl;
+            #endregion
+
             Instance = this;
             Xamarin.Forms.Forms.SetFlags(new string[] {
                 "SwipeView_Experimental",

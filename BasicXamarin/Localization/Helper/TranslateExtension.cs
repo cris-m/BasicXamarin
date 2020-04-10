@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace BasicXamarin.Localization.Helper
 {
     [ContentProperty("Text")]
-    class TranslateExtension : IMarkupExtension
+    public class TranslateExtension : IMarkupExtension
     {
         const string ResourceId = "BasicXamarin.Localization.Resources.AppResources";
         static Lazy<ResourceManager> resourceMessage = new Lazy<ResourceManager>(() => new ResourceManager(ResourceId, typeof(TranslateExtension).GetTypeInfo().Assembly));

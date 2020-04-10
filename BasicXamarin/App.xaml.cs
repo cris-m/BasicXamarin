@@ -151,6 +151,9 @@ namespace BasicXamarin
             //MainPage = new VibrationPage();
             //MainPage = new VersionTrackingPage();
             //MainPage = new EmailPage();
+            //MainPage = new GeolocationPage();
+            //MainPage = new PermissionPage();
+            MainPage = new NavigationPage(new ThemeDetectPage());
 
 
             /*Davanced Concept*/
@@ -163,9 +166,9 @@ namespace BasicXamarin
             //MainPage = new PlayLocalVideoMedia();
             //MainPage = new PlayRemoteAudioMedia();
             //MainPage = new BindableLayoutControl();
-            var culture = CrossMultilingual.Current.DeviceCultureInfo;
-            AppResources.Culture = culture;
-            MainPage = new LocalisationPage();
+            //var culture = CrossMultilingual.Current.DeviceCultureInfo;
+            //AppResources.Culture = culture;
+            //MainPage = new LocalisationPage();
 
         }
 
