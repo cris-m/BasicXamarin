@@ -153,7 +153,7 @@ namespace BasicXamarin
             //MainPage = new EmailPage();
             //MainPage = new GeolocationPage();
             //MainPage = new PermissionPage();
-            MainPage = new NavigationPage(new ThemeDetectPage());
+            //MainPage = new NavigationPage(new ThemeDetectPage());
 
 
             /*Davanced Concept*/
@@ -169,6 +169,8 @@ namespace BasicXamarin
             //var culture = CrossMultilingual.Current.DeviceCultureInfo;
             //AppResources.Culture = culture;
             //MainPage = new LocalisationPage();
+            MainPage = new MaterialDesign();
+
 
         }
 

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BasicXamarin.MaterialDesign"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Visual="Material"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="StyleButton" TargetType="Button">
+                <Setter Property="BorderColor" Value="Red" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="#4a5a66" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            Margin="5"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Frame
+                Margin="10"
+                BackgroundColor="DarkSlateBlue"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="300">
+                <StackLayout>
+                    <Label Text="Log In" />
+                    <Entry Placeholder="Username" />
+                    <Entry IsPassword="True" Placeholder="Password" />
+                </StackLayout>
+            </Frame>
+            <Label HorizontalOptions="Center" Text="Date of Birth" />
+            <DatePicker />
+            <Button Style="{x:StaticResource StyleButton}" Text="Sign In" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
